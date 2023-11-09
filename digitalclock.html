@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Poppins&family=VT323&family=Yesteryear&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            background: radial-gradient(green , black  );
+            background-repeat: no-repeat;
+            padding-top: 100px;
+            height: 500px;
+        }
+
+        h1 {
+            font-size: 120px;
+            font-family: VT323;
+            text-align: center;
+            color: green;
+
+        }
+        .box{
+
+            border-radius: 10px;
+            padding-left: 125px ;
+            width: 50%;
+            margin: auto;
+            height: 60vh;
+            display: flex;
+            background-color: rgb(29, 28, 28);
+            box-shadow: 10px 5px 5px black;
+        }
+    </style>
+</head>
+
+<body onload="Time()">
+<div class="box">
+    <h1 id="Tim">
+
+    </h1>
+</div>
+    <script>
+        function Time() {
+            let d = new Date();
+            let h = d.getHours();
+            let m = d.getMinutes();
+            let s = d.getSeconds();
+            let periods = "AM";
+
+            if (h > 12) {
+                h = h - 12;
+            }
+            if(h>=12){
+                periods = 'PM';
+            }
+            
+
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            let ShowT = h + ":" + m + ":" + s + " " + periods;
+            document.getElementsByTagName('h1')[0].innerText = ShowT;
+            setTimeout(Time, 1000);
+        }
+
+    </script>
+</body>
+
+</html>
